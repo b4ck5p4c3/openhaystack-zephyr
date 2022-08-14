@@ -25,7 +25,7 @@ pio run --target=upload --environment=nrf52-stlink # nRF52 connected with ST-Lin
 ```
 
 ## Full erase
-If you experience some weird behavior, you may try to re-flash SoftDevice using commands below.
+If you experience weird issues on nRF51, you may want to re-flash SoftDevice using commands below.
 ```shell
 # Download and extract S110 8.0.0 SoftDevice somewhere.
 # https://www.nordicsemi.com/Products/Development-software/S110/Download?lang=en#infotabs
