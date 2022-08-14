@@ -21,6 +21,7 @@ nano zephyr/prj.conf
 
 # Compile and upload
 pio run --target=upload --environment=nrf51-jlink # nRF51 connected with J-Link
+pio run --target=upload --environment=nrf51-stlink # nRF51 connected with ST-Link
 pio run --target=upload --environment=nrf52-stlink # nRF52 connected with ST-Link
 ```
 
