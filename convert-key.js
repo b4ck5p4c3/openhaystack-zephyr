@@ -28,6 +28,8 @@ static const struct bt_data advertisement_payload[] = {
   ${keyHex.slice(22, 28).join(', ')},
   0x${(key[0] >> 6).toString(16)}, 0x00)
 };
+
+bt_addr_t addr = { ${keyHex.slice(1, 6).reverse().join(', ')}, 0x${(key[0] | 0b11000000).toString(16)} };
 `;
 
 console.log(snippet);

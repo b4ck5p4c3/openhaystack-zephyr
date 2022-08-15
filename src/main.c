@@ -1,20 +1,7 @@
 #include <zephyr/types.h>
-#include <stddef.h>
-#include <sys/printk.h>
-#include <sys/util.h>
-
 #include <bluetooth/bluetooth.h>
-#include <bluetooth/hci.h>
 
-#define DEVICE_NAME CONFIG_BT_DEVICE_NAME
-#define DEVICE_NAME_LEN (sizeof(DEVICE_NAME) - 1)
-
-/* Paste your advertisement payload here */
-
-void set_payload_from_key(uint8_t *payload, uint8_t *public_key) {
-  memcpy(&payload[5], &public_key[6], 22);
-  payload[27] = public_key[0] >> 6;
-}
+/* Paste your advertisement payload and MAC here */
 
 static void bt_ready(int err)
 {
@@ -35,5 +22,7 @@ static void bt_ready(int err)
 
 void main(void)
 {
+	bt_addr_le_t ble_addr = { BT_ADDR_LE_RANDOM, addr };
+	bt_id_create(&ble_addr, NULL);
 	bt_enable(bt_ready);
 }
