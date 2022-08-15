@@ -26,7 +26,7 @@ static const struct bt_data advertisement_payload[] = {
   ${keyHex.slice(6, 14).join(', ')},
   ${keyHex.slice(14, 22).join(', ')},
   ${keyHex.slice(22, 28).join(', ')},
-  0x${(key[0] >> 6, 10).toString(16)}, 0x00)
+  0x${(key[0] >> 6).toString(16)}, 0x00)
 };
 `;
 
