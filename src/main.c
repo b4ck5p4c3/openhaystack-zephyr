@@ -21,17 +21,12 @@ static void bt_ready(int err)
 	/* Bluetooth initialization error handler */
 	if (err) { return; }
 
-	/* Prepare scan response containing Zephyr's Device Name */
-	static const struct bt_data scan_response[] = {
-		BT_DATA(BT_DATA_NAME_COMPLETE, DEVICE_NAME, DEVICE_NAME_LEN),
-	};
-
 	/* Start advertising */
 	err = bt_le_adv_start(
 		BT_LE_ADV_NCONN_IDENTITY, advertisement_payload, 
 		ARRAY_SIZE(advertisement_payload),
-		scan_response, 
-		ARRAY_SIZE(scan_response)
+		NULL, // Don't send the second packet with device name
+		0
 	);
 
 	/* Advertising error handler */
